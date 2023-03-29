@@ -1,5 +1,4 @@
-
-"on"
+on:
   issues:
     types:
       [opened, edited, deleted, closed, reopened, labeled, unlabeled, assigned]
