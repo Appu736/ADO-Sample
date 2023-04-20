@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- checkout: self
+- checkout: git://github.com/<github-Appu736>/<github-ADO-Sample>.git
+  path: '<github-Appu736/ADO-Sample>'
+
+- script: |
+    echo Starting sync...
+    echo Fetching latest changes from GitHub
+    cd $(System.DefaultWorkingDirectory)/<github-ADO-Sample>
+    git fetch
+    echo Pushing changes to Azure DevOps
+    git push --mirror https://<azure-devops-Shailendra.Bilar@kyndryl.com>:<jxky3c52wnvzmua3uk7xotjnksjfqe74f67oqp72h4giqy5fy4ba>@<https://dev.azure.com/<Kyndryl-Sandbox>/<ADO-TESTING>/_git/<ADO-Sample>
+  displayName: 'Sync changes'
